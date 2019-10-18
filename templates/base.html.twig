@@ -2,21 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>CaptainBoat - {% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Loading Bootstrap -->
     <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Loading Flat UI Pro -->
     <link href="css/flat-ui-pro.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
 
     {% block stylesheets %}{% endblock %}
 
   </head>
   <body>
-
-
 
     <nav class="navbar navbar-inverse navbar-static-top navbar-expand-lg" role="navigation">
         <div class="container">
@@ -41,9 +37,7 @@
         </div>
     </nav><!-- /navbar -->
 
-    <div class="container" style="min-height:1000px">
-        {% block body %}{% endblock %}
-    </div>
+    {% block body %}{% endblock %}
 
     <div class="bottom-menu bottom-menu-inverse">
         <div class="container">
@@ -67,7 +61,7 @@
               <ul class="bottom-menu-iconic-list">
                 <li><a href="#fakelink" class="fui-pinterest"></a></li>
                 <li><a href="#fakelink" class="fui-facebook"></a></li>
-                <li><a href="#fakelink" class="fui-twitter"></a></li>
+                <li><a href="https://twitter.com/captainboat" class="fui-twitter"></a></li>
               </ul>
             </div>
           </div>
