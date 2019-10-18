@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Harbor{% endblock %}
+
+{% block content %}
+    <h1>Harbor</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Depth</th>
+                <th>Phone number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for harbor in harbors %}
+            <tr>
+                <td>{{ harbor.name }}</td>
+                <td>{{ harbor.addressStreet }} {{ harbor.addressZipcode }} {{ harbor.addressCity }}</td>
+                <td>{{ harbor.depth }}</td>
+                <td>{{ harbor.phoneNumber }}</td>
+                <td>
+                    <a href="{{ path('harbor_show', {'id': harbor.id}) }}" class="btn btn-xs btn-primary">show</a>
+                    <a href="{{ path('harbor_edit', {'id': harbor.id}) }}" class="btn btn-xs btn-primary">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('harbor_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

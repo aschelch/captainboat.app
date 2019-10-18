@@ -5,9 +5,9 @@
     <title>CaptainBoat - {% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
-    <link href="css/flat-ui-pro.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/flat-ui-pro.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
     {% block stylesheets %}{% endblock %}
 
@@ -20,8 +20,14 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="active"><a href="#fakelink">Products</a></li>
+                  {% if app.user %}
+                    {% if is_granted('ROLE_HARBOR_ADMIN') %}
+                    <li><a href="/harbor">Harbors</a></li>
+                    {% endif %}
+                    <li><a href="/spot">Spots</a></li>
+                  {% else %}                    
                     <li><a href="#fakelink">Features</a></li>
+                  {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if app.user %}
@@ -44,7 +50,7 @@
 
     {% block body %}{% endblock %}
 
-    <div class="bottom-menu bottom-menu-inverse fixed-bottom">
+    <div class="bottom-menu bottom-menu-inverse navbar-static-bottom">
         <div class="container">
           <div class="row">
             <div class="col-md-2 col-sm-2">
@@ -81,7 +87,7 @@
 
     <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
 
-    <script src="scripts/flat-ui-pro.js"></script>
+    <script src="/scripts/flat-ui-pro.js"></script>
 
     {% block javascripts %}{% endblock %}
 

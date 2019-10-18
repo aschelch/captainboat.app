@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}New Harbor{% endblock %}
+
+{% block content %}
+    <h1>Create new Harbor</h1>
+
+    {{ include('harbor/_form.html.twig') }}
+
+    <a href="{{ path('harbor_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Edit Harbor{% endblock %}
+
+{% block content %}
+    <h1>Edit Harbor</h1>
+
+    {{ include('harbor/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('harbor_index') }}" class="btn btn-primary">back to list</a>
+
+    {{ include('harbor/_delete_form.html.twig') }}
+{% endblock %}
