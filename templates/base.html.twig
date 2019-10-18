@@ -1,12 +1,90 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI Pro -->
+    <link href="css/flat-ui-pro.css" rel="stylesheet">
+
+    {% block stylesheets %}{% endblock %}
+
+  </head>
+  <body>
+
+
+
+    <nav class="navbar navbar-inverse navbar-static-top navbar-expand-lg" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">CaptainBoat</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+            <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="active"><a href="#fakelink">Products</a></li>
+                    <li><a href="#fakelink">Features</a></li>
+                </ul>
+                <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search">
+                    <div class="form-group">
+                        <div class="input-group">
+                        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn"><span class="fui-search"></span></button>
+                        </span>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav><!-- /navbar -->
+
+    <div class="container" style="min-height:1000px">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+
+    <div class="bottom-menu bottom-menu-inverse">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 col-sm-2">
+              <a href="#fakelink" class="bottom-menu-brand">CaptainBoat</a>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <ul class="bottom-menu-list">
+                <li><a href="#fakelink">About Us</a></li>
+                <li><a href="#fakelink">Store</a></li>
+                <li class="active"><a href="#fakelink">Jobs</a></li>
+                <li><a href="#fakelink">Privacy</a></li>
+                <li><a href="#fakelink">Terms</a></li>
+                <li><a href="#fakelink">Follow Us</a></li>
+                <li><a href="#fakelink">Support</a></li>
+                <li><a href="#fakelink">Links</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-sm-2">
+              <ul class="bottom-menu-iconic-list">
+                <li><a href="#fakelink" class="fui-pinterest"></a></li>
+                <li><a href="#fakelink" class="fui-facebook"></a></li>
+                <li><a href="#fakelink" class="fui-twitter"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 4 requires Popper.js -->
+    <script src="https://unpkg.com/popper.js@1.14.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+
+    <script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+
+    <script src="scripts/flat-ui-pro.js"></script>
+
+    {% block javascripts %}{% endblock %}
+
+  </body>
 </html>
