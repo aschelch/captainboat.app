@@ -16,30 +16,35 @@
 
     <nav class="navbar navbar-inverse navbar-static-top navbar-expand-lg" role="navigation">
         <div class="container">
-            <a class="navbar-brand" href="#">CaptainBoat</a>
+            <a class="navbar-brand" href="/">CaptainBoat</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
             <div class="collapse navbar-collapse" id="navbar-collapse-01">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="active"><a href="#fakelink">Products</a></li>
                     <li><a href="#fakelink">Features</a></li>
                 </ul>
-                <form class="navbar-form form-inline my-2 my-lg-0" action="#" role="search">
-                    <div class="form-group">
-                        <div class="input-group">
-                        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn"><span class="fui-search"></span></button>
-                        </span>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if app.user %}
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{ app.user.name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="/logout">Log out</a>
                         </div>
-                    </div>
-                </form>
+                      </li>
+                    {% else %}
+                      <li><a href="/login">Log in</a></li>
+                      <li><a href="/signup">Sign up</a></li>
+                    {% endif %}
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div>
     </nav><!-- /navbar -->
 
     {% block body %}{% endblock %}
 
-    <div class="bottom-menu bottom-menu-inverse">
+    <div class="bottom-menu bottom-menu-inverse fixed-bottom">
         <div class="container">
           <div class="row">
             <div class="col-md-2 col-sm-2">
@@ -61,7 +66,7 @@
               <ul class="bottom-menu-iconic-list">
                 <li><a href="#fakelink" class="fui-pinterest"></a></li>
                 <li><a href="#fakelink" class="fui-facebook"></a></li>
-                <li><a href="https://twitter.com/captainboat" class="fui-twitter"></a></li>
+                <li><a href="https://twitter.com/captainboatapp" class="fui-twitter"></a></li>
               </ul>
             </div>
           </div>
